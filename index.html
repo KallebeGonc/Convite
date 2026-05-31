@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princess Dyennifer's — 15 Anos</title>
+
+
+<script>
+const CONFIG = {
+  /* Foto de perfil: coloque o arquivo na mesma pasta e use o nome aqui */
+  fotoPerfil: "foto.jpg",
+
+  /* Dados da festa */
+  mes:        "Julho",
+  diaSemana:  "Sábado",
+  dia:        "11",
+  horario:    "20:00",
+  ano:        "2026",
+
+  /* WhatsApp do administrador — só números, com DDI e DDD */
+  adminWhatsApp: "5561982903103",
+
+  /* Link do Google Maps do salão */
+  googleMapsLink: "https://maps.google.com/?q=QNO+18+Conj.+F+lote+25+Ceilândia+Brasília+DF",
+
+  /* Fotos de trajes (ficam na mesma pasta) */
+  fotoTrajes: ["trajes1.jpg", "trajes2.jpg"]
+};
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Pinyon+Script&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --creme:     #f9f4f7;
+    --creme2:    #f0e8ef;
+    --rosa:      #b0517a;
+    --rosa-med:  #c9739a;
+    --rosa-clr:  #dfa8c4;
+    --rosa-pal:  #f4d8e8;
+    --roxo:      #7c3d8f;
+    --roxo-med:  #9e5ab0;
+    --roxo-pal:  #e8d2f0;
+    --tinta:     #3a1a45;
+    --dourado:   #b8966e;
+    --sombra:    rgba(90,30,80,0.13);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--creme2);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* ── PAPEL ── */
+  .convite {
+    background: var(--creme);
+    max-width: 480px;
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(90,30,80,0.18), 0 2px 8px rgba(90,30,80,0.10);
+    padding: 0 0 3rem;
+  }
+
+  .convite::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .convite > * { position: relative; z-index: 1; }
+
+  /* ── FLORES SVG ── */
+  .flores-topo, .flores-base {
+    width: 100%;
+    display: block;
+    pointer-events: none;
+  }
+  .flores-base { transform: rotate(180deg); }
+
+  /* ── FOTO DE PERFIL ── */
+  .perfil-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    margin-bottom: 0.5rem;
+  }
+
+  .perfil-circulo {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--rosa);
+    overflow: hidden;
+    background: var(--creme2);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 16px var(--sombra);
+  }
+
+  .perfil-circulo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .silhueta { width: 70px; height: 85px; }
+
+  /* ── TIPOGRAFIA ── */
+  .centro { text-align: center; padding: 0 2rem; }
+
+  .nome-topo {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2rem;
+    color: var(--tinta);
+    margin: 0.8rem 0 1rem;
+    line-height: 1.1;
+  }
+
+  .texto-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--tinta);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .quinze-anos {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 4.5rem;
+    color: var(--roxo-med);
+    line-height: 1;
+    margin: 0.4rem 0 0;
+    text-shadow: 0 2px 8px rgba(158,90,176,0.15);
+  }
+
+  .ornamento {
+    display: block;
+    width: 180px;
+    margin: 0.5rem auto;
+    opacity: 0.7;
+  }
+
+  .diamante-texto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--tinta);
+    font-style: italic;
+    margin: 0.8rem 0 0.3rem;
+  }
+
+  .nome-aniversariante {
+    font-family: 'IM Fell English', serif;
+    font-size: 2.4rem;
+    letter-spacing: 0.15em;
+    color: var(--rosa);
+    text-transform: uppercase;
+    margin: 0.2rem 0 1.4rem;
+  }
+
+  .separador {
+    width: 60%;
+    border: none;
+    border-top: 1px solid var(--rosa-clr);
+    margin: 0 auto 1.2rem;
+    opacity: 0.5;
+  }
+
+  /* ── DATA ── */
+  .data-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 2px 8px;
+    width: fit-content;
+    margin: 0 auto 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--tinta);
+    font-size: 1.05rem;
+  }
+
+  .data-mes  { grid-column:2; grid-row:1; text-align:center; border-bottom:1px solid var(--rosa-clr); padding-bottom:2px; font-style:italic; }
+  .data-semana { grid-column:1; grid-row:2; text-align:right; border-bottom:1px solid var(--rosa-clr); padding-bottom:2px; }
+  .data-dia  { grid-column:2; grid-row:2; text-align:center; font-size:2rem; font-weight:600; color:var(--rosa); line-height:1; padding:0 12px; }
+  .data-hora { grid-column:3; grid-row:2; text-align:left; border-bottom:1px solid var(--rosa-clr); padding-bottom:2px; }
+  .data-ano  { grid-column:2; grid-row:3; text-align:center; border-top:1px solid var(--rosa-clr); padding-top:2px; font-style:italic; }
+
+  /* ── BOTÕES ── */
+  .botoes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-circulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .btn-circulo .anel {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--rosa-clr);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--creme);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 10px var(--sombra);
+  }
+
+  .btn-circulo:hover .anel {
+    background: var(--rosa-pal);
+    border-color: var(--rosa-med);
+    transform: scale(1.07);
+  }
+
+  .btn-circulo svg { width: 32px; height: 32px; stroke: var(--rosa); fill: none; stroke-width: 1.5; }
+
+  .btn-label {
+    font-size: 0.78rem;
+    color: var(--tinta);
+    font-style: italic;
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.3;
+  }
+
+  .clique-aqui {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--rosa-med);
+    margin-top: 0.2rem;
+    opacity: 0.8;
+  }
+
+  /* ── MODAIS ── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(58,26,69,0.50);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  .modal-overlay.aberto { display: flex; }
+
+  .modal {
+    background: var(--creme);
+    border-radius: 8px;
+    max-width: 440px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 16px 60px rgba(58,26,69,0.3);
+    border: 1px solid var(--rosa-pal);
+    font-family: 'Cormorant Garamond', serif;
+    margin: auto;
+  }
+
+  .modal h2 {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2rem;
+    color: var(--rosa);
+    margin-bottom: 1rem;
+  }
+
+  .modal p {
+    font-size: 1rem;
+    color: var(--tinta);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .modal input[type="text"] {
+    width: 100%;
+    border: 1px solid var(--rosa-clr);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    background: var(--creme2);
+    color: var(--tinta);
+    outline: none;
+    margin-bottom: 0.8rem;
+  }
+
+  .modal input[type="text"]:focus { border-color: var(--rosa-med); }
+
+  .btn-confirmar {
+    width: 100%;
+    background: var(--rosa);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.7rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .btn-confirmar:hover { background: var(--tinta); }
+
+  .fechar {
+    position: absolute;
+    top: 0.8rem; right: 1rem;
+    background: none; border: none;
+    font-size: 1.5rem; cursor: pointer;
+    color: var(--rosa-med);
+    line-height: 1;
+  }
+  .fechar:hover { color: var(--tinta); }
+
+  /* trajes fotos */
+  .trajes-fotos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .trajes-fotos img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--rosa-pal);
+    object-fit: contain;
+    max-height: 70vh;
+  }
+
+  .trajes-legenda {
+    font-size: 0.85rem;
+    color: var(--rosa-med);
+    text-align: center;
+    font-style: italic;
+    margin-top: -0.4rem;
+  }
+
+  /* animação */
+  .convite { animation: surgir 0.7s ease both; }
+  @keyframes surgir {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="convite" id="convite">
+
+  <!-- Flores topo rosa/roxo -->
+  <svg class="flores-topo" viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><style>
+      .fp{fill:#b0517a;opacity:.17} .fm{fill:#7c3d8f;opacity:.25}
+      .fp2{fill:#b0517a;opacity:.17} .fm2{fill:#7c3d8f;opacity:.25}
+    </style></defs>
+    <g transform="translate(-10,0)">
+      <ellipse class="fm" cx="30" cy="20" rx="22" ry="10" transform="rotate(-30 30 20)"/>
+      <ellipse class="fp" cx="60" cy="10" rx="18" ry="8" transform="rotate(10 60 10)"/>
+      <ellipse class="fm" cx="15" cy="55" rx="20" ry="9" transform="rotate(50 15 55)"/>
+      <ellipse class="fp" cx="55" cy="45" rx="16" ry="7" transform="rotate(-20 55 45)"/>
+      <ellipse class="fm" cx="85" cy="25" rx="14" ry="6" transform="rotate(20 85 25)"/>
+      <circle class="fm" cx="45" cy="70" r="8"/>
+      <ellipse class="fp" cx="100" cy="60" rx="18" ry="7" transform="rotate(-40 100 60)"/>
+      <ellipse class="fm" cx="10" cy="90" rx="16" ry="6" transform="rotate(60 10 90)"/>
+      <ellipse class="fp" cx="70" cy="88" rx="13" ry="5" transform="rotate(15 70 88)"/>
+      <ellipse class="fm" cx="110" cy="100" rx="20" ry="7" transform="rotate(-50 110 100)"/>
+      <ellipse class="fp" cx="30" cy="120" rx="14" ry="5" transform="rotate(40 30 120)"/>
+      <ellipse class="fm" cx="80" cy="130" rx="16" ry="6" transform="rotate(-10 80 130)"/>
+      <ellipse class="fp" cx="120" cy="145" rx="22" ry="7" transform="rotate(30 120 145)"/>
+      <path d="M20,0 Q40,60 30,130" stroke="#b0517a" stroke-width="1.2" fill="none" opacity=".22"/>
+      <path d="M60,0 Q80,50 100,110" stroke="#7c3d8f" stroke-width="1" fill="none" opacity=".18"/>
+    </g>
+    <g transform="translate(490,0) scale(-1,1)">
+      <ellipse class="fm" cx="30" cy="20" rx="22" ry="10" transform="rotate(-30 30 20)"/>
+      <ellipse class="fp" cx="60" cy="10" rx="18" ry="8" transform="rotate(10 60 10)"/>
+      <ellipse class="fm" cx="15" cy="55" rx="20" ry="9" transform="rotate(50 15 55)"/>
+      <ellipse class="fp" cx="55" cy="45" rx="16" ry="7" transform="rotate(-20 55 45)"/>
+      <ellipse class="fm" cx="85" cy="25" rx="14" ry="6" transform="rotate(20 85 25)"/>
+      <circle class="fm" cx="45" cy="70" r="8"/>
+      <ellipse class="fp" cx="100" cy="60" rx="18" ry="7" transform="rotate(-40 100 60)"/>
+      <ellipse class="fm" cx="10" cy="90" rx="16" ry="6" transform="rotate(60 10 90)"/>
+      <ellipse class="fp" cx="70" cy="88" rx="13" ry="5" transform="rotate(15 70 88)"/>
+      <ellipse class="fm" cx="110" cy="100" rx="20" ry="7" transform="rotate(-50 110 100)"/>
+      <ellipse class="fp" cx="30" cy="120" rx="14" ry="5" transform="rotate(40 30 120)"/>
+      <ellipse class="fm" cx="80" cy="130" rx="16" ry="6" transform="rotate(-10 80 130)"/>
+      <ellipse class="fp" cx="120" cy="145" rx="22" ry="7" transform="rotate(30 120 145)"/>
+      <path d="M20,0 Q40,60 30,130" stroke="#b0517a" stroke-width="1.2" fill="none" opacity=".22"/>
+      <path d="M60,0 Q80,50 100,110" stroke="#7c3d8f" stroke-width="1" fill="none" opacity=".18"/>
+    </g>
+  </svg>
+
+  <!-- Foto de perfil -->
+  <div class="perfil-wrap">
+    <div class="perfil-circulo" id="perfil-circulo"></div>
+  </div>
+
+  <!-- Conteúdo central -->
+  <div class="centro">
+    <p class="nome-topo">Princess Dyennifer's</p>
+
+    <p class="texto-intro">
+      Querido e gentil leitor,<br>
+      o prazer da sua companhia está sendo<br>
+      requisitado para os
+    </p>
+
+    <p class="quinze-anos">15 Anos</p>
+
+    <svg class="ornamento" viewBox="0 0 200 30" aria-hidden="true">
+      <path d="M10,15 Q50,3 95,15 Q140,27 190,15" stroke="#b0517a" stroke-width="1" fill="none" opacity=".45"/>
+      <circle cx="100" cy="15" r="4" fill="none" stroke="#7c3d8f" stroke-width="1" opacity=".6"/>
+      <path d="M88,15 Q94,8 100,15 Q106,22 112,15" stroke="#7c3d8f" stroke-width="1" fill="none" opacity=".5"/>
+      <circle cx="20" cy="15" r="2" fill="#b0517a" opacity=".3"/>
+      <circle cx="180" cy="15" r="2" fill="#b0517a" opacity=".3"/>
+    </svg>
+
+    <p class="diamante-texto">do diamante da temporada:</p>
+    <p class="nome-aniversariante">Dyennifer</p>
+
+    <hr class="separador">
+
+    <div class="data-grid">
+      <span class="data-mes"    id="d-mes">Julho</span>
+      <span class="data-semana" id="d-semana">Sábado</span>
+      <span class="data-dia"    id="d-dia">11</span>
+      <span class="data-hora"   id="d-hora">às 20:00</span>
+      <span class="data-ano"    id="d-ano">2026</span>
+    </div>
+
+    <!-- Botões -->
+    <div class="botoes">
+
+      <button class="btn-circulo" onclick="abrirMaps()" title="Acesse a localização">
+        <div class="anel">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" stroke="none" fill="#b0517a"/></svg>
+        </div>
+        <span class="btn-label">Acesse a localização</span>
+      </button>
+
+      <button class="btn-circulo" onclick="abrirConfirmar()" title="Confirme sua presença">
+        <div class="anel">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="btn-label">Confirme sua presença</span>
+      </button>
+
+      <button class="btn-circulo" onclick="abrirTrajes()" title="Trajes">
+        <div class="anel">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/>
+          </svg>
+        </div>
+        <span class="btn-label">Trajes da temporada</span>
+      </button>
+
+    </div>
+
+    <p class="clique-aqui">✦ Clique aqui ✦</p>
+  </div>
+
+  <!-- Flores base -->
+  <svg class="flores-base" viewBox="0 0 480 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g transform="translate(-10,0)">
+      <ellipse class="fm2" cx="30" cy="80" rx="22" ry="10" transform="rotate(-30 30 80)"/>
+      <ellipse class="fp2" cx="60" cy="90" rx="18" ry="8" transform="rotate(10 60 90)"/>
+      <ellipse class="fm2" cx="15" cy="45" rx="20" ry="9" transform="rotate(50 15 45)"/>
+      <ellipse class="fp2" cx="55" cy="55" rx="16" ry="7" transform="rotate(-20 55 55)"/>
+      <ellipse class="fm2" cx="85" cy="75" rx="14" ry="6" transform="rotate(20 85 75)"/>
+      <ellipse class="fp2" cx="100" cy="40" rx="18" ry="7" transform="rotate(-40 100 40)"/>
+      <ellipse class="fm2" cx="10" cy="10" rx="16" ry="6" transform="rotate(60 10 10)"/>
+      <ellipse class="fp2" cx="70" cy="12" rx="13" ry="5" transform="rotate(15 70 12)"/>
+    </g>
+    <g transform="translate(490,0) scale(-1,1)">
+      <ellipse class="fm2" cx="30" cy="80" rx="22" ry="10" transform="rotate(-30 30 80)"/>
+      <ellipse class="fp2" cx="60" cy="90" rx="18" ry="8" transform="rotate(10 60 90)"/>
+      <ellipse class="fm2" cx="15" cy="45" rx="20" ry="9" transform="rotate(50 15 45)"/>
+      <ellipse class="fp2" cx="55" cy="55" rx="16" ry="7" transform="rotate(-20 55 55)"/>
+      <ellipse class="fm2" cx="85" cy="75" rx="14" ry="6" transform="rotate(20 85 75)"/>
+      <ellipse class="fp2" cx="100" cy="40" rx="18" ry="7" transform="rotate(-40 100 40)"/>
+      <ellipse class="fm2" cx="10" cy="10" rx="16" ry="6" transform="rotate(60 10 10)"/>
+      <ellipse class="fp2" cx="70" cy="12" rx="13" ry="5" transform="rotate(15 70 12)"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ── MODAL: CONFIRMAR PRESENÇA ── -->
+<div class="modal-overlay" id="modal-confirmar">
+  <div class="modal">
+    <button class="fechar" onclick="fecharModal('modal-confirmar')">×</button>
+    <h2>Confirmar Presença</h2>
+    <p>Por favor, informe seu nome para que possamos reservar seu lugar nesta celebração.</p>
+    <input type="text" id="nome-convidado" placeholder="Seu nome completo" maxlength="80" />
+    <button class="btn-confirmar" onclick="confirmarPresenca()">
+      Confirmar via WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- ── MODAL: TRAJES ── -->
+<div class="modal-overlay" id="modal-trajes">
+  <div class="modal">
+    <button class="fechar" onclick="fecharModal('modal-trajes')">×</button>
+    <h2>Trajes da Temporada</h2>
+    <p>Para esta celebração especial, convidamos nossos ilustres convidados a comparecerem com trajes dignos da ocasião.</p>
+    <div class="trajes-fotos" id="trajes-fotos"></div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+
+    /* Foto de perfil */
+    const circulo = document.getElementById('perfil-circulo');
+    if (CONFIG.fotoPerfil) {
+      const img = document.createElement('img');
+      img.src = CONFIG.fotoPerfil;
+      img.alt = 'Foto de Dyennifer';
+      img.onerror = () => { circulo.innerHTML = silhuetaSVG(); };
+      circulo.appendChild(img);
+    } else {
+      circulo.innerHTML = silhuetaSVG();
+    }
+
+    /* Data */
+    document.getElementById('d-mes').textContent    = CONFIG.mes;
+    document.getElementById('d-semana').textContent  = CONFIG.diaSemana;
+    document.getElementById('d-dia').textContent    = CONFIG.dia;
+    document.getElementById('d-hora').textContent   = 'às ' + CONFIG.horario;
+    document.getElementById('d-ano').textContent    = CONFIG.ano;
+
+    /* Fotos de trajes */
+    const div = document.getElementById('trajes-fotos');
+    CONFIG.fotoTrajes.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Referência de traje ' + (i+1);
+      div.appendChild(img);
+      const leg = document.createElement('p');
+      leg.className = 'trajes-legenda';
+      leg.textContent = i === 0 ? 'Trajes masculinos & femininos — referências 1' : 'Trajes — referências 2';
+      div.appendChild(leg);
+    });
+  });
+
+  function silhuetaSVG() {
+    return `<svg class="silhueta" viewBox="0 0 70 85" fill="#3a1a45" xmlns="http://www.w3.org/2000/svg" aria-label="Silhueta">
+      <ellipse cx="35" cy="22" rx="14" ry="17"/>
+      <path d="M10,85 Q12,52 35,48 Q58,52 60,85 Z"/>
+      <path d="M18,56 Q10,68 8,85 H62 Q60,68 52,56 Q43,70 35,70 Q27,70 18,56 Z" opacity=".3"/>
+    </svg>`;
+  }
+
+  function abrirModal(id) {
+    document.getElementById(id).classList.add('aberto');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fecharModal(id) {
+    document.getElementById(id).classList.remove('aberto');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => {
+      if (e.target === el) fecharModal(el.id);
+    });
+  });
+
+  function abrirMaps()      { window.open(CONFIG.googleMapsLink, '_blank'); }
+  function abrirConfirmar() { abrirModal('modal-confirmar'); }
+  function abrirTrajes()    { abrirModal('modal-trajes'); }
+
+  function confirmarPresenca() {
+    const nome = document.getElementById('nome-convidado').value.trim();
+    if (!nome) { alert('Por favor, informe seu nome.'); return; }
+    const msg = encodeURIComponent(
+      `✨ Olá! Estou confirmando minha presença nos 15 anos da Dyennifer!\n\n` +
+      `👤 Nome: ${nome}\n` +
+      `📅 Evento: ${CONFIG.diaSemana}, ${CONFIG.dia} de ${CONFIG.mes} de ${CONFIG.ano} às ${CONFIG.horario}\n\n` +
+      `Mal posso esperar para celebrar esta ocasião especial! 🎉`
+    );
+    window.open('https://wa.me/' + CONFIG.adminWhatsApp + '?text=' + msg, '_blank');
+    fecharModal('modal-confirmar');
+    document.getElementById('nome-convidado').value = '';
+  }
+</script>
+
+</body>
+</html>
